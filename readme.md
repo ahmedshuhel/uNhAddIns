@@ -1,3 +1,6 @@
+Upgrade Note: This is a strip down version of the original library. Taken only the bits that I need for my project. Updated the dependency to latest as of today. Castle Windsor NHibernate and log4net etc. All tests are passing.
+
+
 For the first time.
 Because we dont have AssemblyInfo.cs files into repository, u should run 'generateassemblyinfo.bat' for generate these files before open any solution in Visual Studio.
 
