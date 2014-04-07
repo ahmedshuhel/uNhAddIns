@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+				   assembly="uNhAddIns.Adapters.CommonTests"
+				   namespace="uNhAddIns.Adapters.CommonTests">
+	
+	<class name="Silly">
+    <id name="Id" access="field.camelcase-underscore">
+      <generator class="assigned"/>
+    </id>
+    <version name="ConcurrencyId" unsaved-value="-1" access="field.camelcase-underscore"/>
+    <property name="Name"/>
+    <many-to-one name="Other" class="Other" cascade="all"/>
+	</class>
+
+  <class name="Other">
+    <id name="Id" access="field.camelcase-underscore">
+      <generator class="assigned"/>
+    </id>
+    <version name="ConcurrencyId" unsaved-value="-1" access="field.camelcase-underscore"/>
+    <property name="Name"/>
+  </class>
+
+</hibernate-mapping>

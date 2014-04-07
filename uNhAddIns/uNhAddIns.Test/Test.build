@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets="_Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+	<Target Name="_Init" DependsOnTargets="Init">
+		<PropertyGroup>
+			<ProjectFile>uNhAddIns.Test.csproj</ProjectFile>
+			<AssemblyTitle>uNhAddIns.Test</AssemblyTitle>
+			<AssemblyProduct>uNhAddIns.Test</AssemblyProduct>
+			<AssemblyDescription>The Unit Tests for uNhAddIns</AssemblyDescription>
+			<AssemblyClsCompliant>False</AssemblyClsCompliant>
+			<SkipTest>False</SkipTest>
+		</PropertyGroup>
+	</Target>
+	
+	<Target Name="_Build" DependsOnTargets="_Init;Compile;CopyTestDatabase;_CopyCfg;IncludeOutputsToTestAssemblies" Outputs="@(TestAssemblies)"/>
+
+	<Target Name = "_GenerateAssemblyInfo" DependsOnTargets="_Init;GenerateAssemblyInfo"/>
+	
+	<Target Name="_CopyCfg" Condition="$(TeamCity) Or $(ForceTeamCity)">
+		<Copy SourceFiles="TeamCity.TestConfig1.cfg.xml" DestinationFiles="@(OutputFiles->'%(RelativeDir)TestConfig1.cfg.xml')"/>
+		<Copy SourceFiles="TeamCity.TestConfig2.cfg.xml" DestinationFiles="@(OutputFiles->'%(RelativeDir)TestConfig2.cfg.xml')"/>
+		<Copy SourceFiles="TeamCity.TestConfigWithFactoryName.xml" DestinationFiles="@(OutputFiles->'%(RelativeDir)hibernate.cfg.xml')"/>
+		<Copy SourceFiles="TeamCity.TestConfigWithFactoryName.xml" DestinationFiles="@(OutputFiles->'%(RelativeDir)TestConfigWithFactoryName.xml')"/>
+	</Target>
+	
+	
+	<Import Project="$(RootDir)\BuildCommon\CommonProject.build"/>
+</Project>
+
+

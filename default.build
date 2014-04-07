@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+
+	<PropertyGroup>
+		<RootDir>$(MSBuildProjectDirectory)</RootDir>
+		<Configuration>Debug</Configuration>
+		<IncludePostSharpAdapter>False</IncludePostSharpAdapter>
+	</PropertyGroup>
+
+	<Target Name = "AutomatedBuild" DependsOnTargets="DefineBuild;RunGenerateAssemblyInfo;RunBuild;RunTest"/>
+	<Target Name = "Build" DependsOnTargets="DefineBuild;RunGenerateAssemblyInfo;RunBuild"/>
+	<Target Name = "Test" DependsOnTargets="DefineBuild;RunGenerateAssemblyInfo;RunBuild;RunTest"/>
+	<Target Name = "GenerateAssemblyInfo" DependsOnTargets="DefineBuild;RunGenerateAssemblyInfo"/>
+		
+	<Target Name="DefineBuild">
+		<ItemGroup>	
+			<BuildFiles Include="$(RootDir)\uNhAddIns\uNhAddIns\uNhAddIns2.build"/>
+			<BuildFiles Include="$(RootDir)\uNhAddIns\uNhAddIns.Adapters\Adapters.build"/>
+			<BuildFiles Include="$(RootDir)\uNhAddIns\uNhAddIns.Adapters.Common\Adapters.Common.build"/>
+			<BuildFiles Include="$(RootDir)\uNhAddIns\uNhAddIns.CastleAdapters\CastleAdapters.build"/>
+			<BuildFiles Include="$(RootDir)\uNhAddIns\uNhAddIns.CastleAdapters.Tests\CastleAdapters.Tests.build"/>
+			<BuildFiles Include="$(RootDir)\uNhAddIns\uNhAddIns.Test\Test.build"/>
+			<BuildFiles Include="$(RootDir)\uNhAddIns\uNhAddIns.TestUtils\TestUtils.build"/>
+			<BuildFiles Include="$(RootDir)\uNhAddIns\uNhAddIns.Adapters.CommonTests\Adapters.CommonTests.build"/>
+			<BuildFiles Include="$(RootDir)\uNhAddIns\uNhAddIns.TestUtils.Tests\TestUtils.Tests.build"/>
+			<BuildFiles Include="$(RootDir)\uNhAddIns\uNhAddIns.Entities\Entities.build"/>
+			<BuildFiles Include="$(RootDir)\uNhAddIns\uNhAddIns.Entities.Tests\Entities.Tests.build"/>
+    </ItemGroup>
+	</Target>
+
+	<Import Project="BuildCommon\Common.build"/>
+</Project>

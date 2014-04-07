@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-configuration  xmlns="urn:nhibernate-configuration-2.2" >
+	<session-factory name="FACTORY1">
+		<property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
+		<property name="connection.connection_string">Server=ZEN-HOME;Initial Catalog=Easier;User Id=sa; Password =123</property>
+		<property name="query.substitutions">true 1, false 0, yes 1, no 0</property>
+		<property name="dialect">NHibernate.Dialect.MsSql2005Dialect</property>
+	</session-factory>
+</hibernate-configuration>

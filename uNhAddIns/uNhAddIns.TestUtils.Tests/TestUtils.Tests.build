@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets="_Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+	<Target Name="_Init" DependsOnTargets="Init">
+		<PropertyGroup>
+			<ProjectFile>uNhAddIns.TestUtils.Tests.csproj</ProjectFile>
+			<AssemblyTitle>uNhAddIns.TestUtils.Tests</AssemblyTitle>
+			<AssemblyProduct>uNhAddIns.TestUtils.Tests</AssemblyProduct>
+			<AssemblyDescription></AssemblyDescription>
+			<AssemblyClsCompliant>True</AssemblyClsCompliant>
+			<SkipTest>False</SkipTest>
+		</PropertyGroup>
+	</Target>
+
+	<Target Name="_Build" DependsOnTargets="_Init;Compile;IncludeOutputsToTestAssemblies" Outputs="@(TestAssemblies)"/>
+	
+	<Target Name = "_GenerateAssemblyInfo" DependsOnTargets="_Init;GenerateAssemblyInfo"/>
+	
+	<Import Project="$(RootDir)\BuildCommon\CommonProject.build"/>
+</Project>
+
+

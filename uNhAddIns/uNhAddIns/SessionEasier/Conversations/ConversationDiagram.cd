@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="uNhAddIns.SessionEasier.Conversations.ConversationException" Collapsed="true">
+    <Position X="1.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SessionEasier\Conversations\ConversationException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="uNhAddIns.SessionEasier.Conversations.IConversation">
+    <Position X="1.5" Y="1.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAIiQAAAEiAAACEAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>SessionEasier\Conversations\IConversation.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="uNhAddIns.SessionEasier.Conversations.IConversationsContainerAccessor" Collapsed="true">
+    <Position X="6.5" Y="3.5" Width="2.5" />
+    <AssociationLine Name="Container" Type="uNhAddIns.SessionEasier.Conversations.IConversationContainer" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.5" Y="3.755" />
+        <Point X="6.26" Y="3.755" />
+        <Point X="6.26" Y="2.875" />
+        <Point X="6" Y="2.875" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.37" Y="-0.242" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SessionEasier\Conversations\IConversationsContainerAccessor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Container" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="uNhAddIns.SessionEasier.Conversations.IConversationContainer">
+    <Position X="4" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAgABAAAAAAABAAAEAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>SessionEasier\Conversations\IConversationContainer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="uNhAddIns.SessionEasier.Conversations.IConversationFactory">
+    <Position X="4" Y="1.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SessionEasier\Conversations\IConversationFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

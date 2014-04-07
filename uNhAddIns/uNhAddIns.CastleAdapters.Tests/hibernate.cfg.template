@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-configuration  xmlns="urn:nhibernate-configuration-2.2" >
+	<session-factory name="uNhAddIns">
+		<property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
+		<property name="connection.connection_string">
+			Data Source=localhost\SQLEXPRESS;Initial Catalog=uNhAITests;Integrated Security=True;Pooling=False
+		</property>
+		<property name="dialect">NHibernate.Dialect.MsSql2005Dialect</property>
+
+		<property name="adonet.batch_size">10</property>
+		<property name="show_sql">false</property>
+		<property name="use_outer_join">true</property>
+		<property name="command_timeout">10</property>
+		<property name="query.substitutions">true 1, false 0, yes 'Y', no 'N'</property>
+		<property name="current_session_context_class">
+			uNhAddIns.SessionEasier.Conversations.ThreadLocalConversationalSessionContext, uNhAddIns
+		</property>
+		<property name="proxyfactory.factory_class">NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle</property>
+		<mapping assembly="uNhAddIns.Adapters.CommonTests"/>
+	</session-factory>
+</hibernate-configuration>

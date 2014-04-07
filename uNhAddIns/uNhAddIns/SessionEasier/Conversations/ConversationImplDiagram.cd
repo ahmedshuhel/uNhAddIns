@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="uNhAddIns.SessionEasier.Conversations.NhConversation">
+    <Position X="4" Y="1" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="uNhAddIns.SessionEasier.Conversations.AbstractConversation" FixedToPoint="true">
+      <Path>
+        <Point X="3" Y="1.219" />
+        <Point X="4" Y="1.219" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AQAggEEIACAAAgAAAAEBCAAgAAAAoQAAABAEMBAAIAA=</HashCode>
+      <FileName>SessionEasier\Conversations\NhConversation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="uNhAddIns.SessionEasier.Conversations.AbstractConversation">
+    <Position X="0.5" Y="1" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Events" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAIiQBEIFiAAACEAgEEFQIAAAQIIAIAAhAAAAAoBIgA=</HashCode>
+      <FileName>SessionEasier\Conversations\AbstractConversation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="uNhAddIns.SessionEasier.Conversations.AbstractConversationContainer">
+    <Position X="0.5" Y="8.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AABAgABQACAAAABAAAEAAAAAAAAAAAAAAAAEAQAAAAA=</HashCode>
+      <FileName>SessionEasier\Conversations\AbstractConversationContainer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="uNhAddIns.SessionEasier.Conversations.ThreadLocalConversationContainer">
+    <Position X="3.75" Y="8.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="uNhAddIns.SessionEasier.Conversations.AbstractConversationContainer" FixedToPoint="true">
+      <Path>
+        <Point X="2.75" Y="8.602" />
+        <Point X="3.75" Y="8.602" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>ABAAAAAQAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAA=</HashCode>
+      <FileName>SessionEasier\Conversations\ThreadLocalConversationContainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="uNhAddIns.SessionEasier.Conversations.ThreadLocalConversationalSessionContext">
+    <Position X="3.25" Y="11" Width="3.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAACAgAAAAIAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SessionEasier\Conversations\ThreadLocalConversationalSessionContext.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="uNhAddIns.SessionEasier.Conversations.NhConversationsContainerAccessor">
+    <Position X="5.25" Y="15.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SessionEasier\Conversations\NhConversationsContainerAccessor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="uNhAddIns.SessionEasier.Conversations.DefaultConversationFactory">
+    <Position X="0.5" Y="11.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SessionEasier\Conversations\DefaultConversationFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

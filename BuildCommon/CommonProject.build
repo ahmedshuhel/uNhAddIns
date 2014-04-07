@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+	<Target Name="Init">
+		<PropertyGroup>
+			<AssemblyCompany>uNhAddIns</AssemblyCompany>
+			<AssemblyCopyright>Copyright (c) $(AssemblyCompany), 2008. All rights reserved.</AssemblyCopyright>
+			<AssemblyCodeLanguage>CS</AssemblyCodeLanguage>
+	    	<AssemblyVersion>3.0.0</AssemblyVersion>
+			<AssemblyOutputDir>Properties</AssemblyOutputDir>
+	    	<AssemblyOutputFile>$(AssemblyOutputDir)\AssemblyInfo.cs</AssemblyOutputFile>
+			<Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+			<SVNDir>$(MSBuildProjectDirectory)\..\..\Tools\Subversion</SVNDir>
+			<SkipTest>False</SkipTest>
+			<TeamCity>True</TeamCity>
+			<TeamCity Condition="'$(BUILD_VCS_NUMBER)' == ''">False</TeamCity>
+			<ForceTeamCity>True</ForceTeamCity>			
+		</PropertyGroup>
+	</Target>
+
+	<Target Name="Compile">
+		<Message Importance="High" Text="Compiling $(AssemblyProduct) configuration=$(Configuration)"/>
+		<MSBuild Projects ="$(MSBuildProjectDirectory)\$(ProjectFile)"
+             ContinueOnError ="false"
+             Properties="Configuration=$(Configuration)">
+        	<Output ItemName="OutputFiles" TaskParameter="TargetOutputs"/>
+    	</MSBuild>
+    </Target>
+
+	<Target Name="HgRevision" Condition="!$(TeamCity) And Exists('$(RootDir)\.hg')">
+		<HgVersion LocalPath="." Timeout="5000">
+			<Output TaskParameter="Revision" PropertyName="BUILD_VCS_NUMBER" />
+		</HgVersion>
+	</Target>
+
+	<Target Name="SVNRevision" Condition="!$(TeamCity) And !Exists('$(RootDir)\.hg')">
+		<SvnVersion LocalPath="." ToolPath="$(SVNDir)">
+			<Output TaskParameter="Revision" PropertyName="BUILD_VCS_NUMBER" />
+		</SvnVersion>
+	</Target>
+	
+	<Target Name="GenerateAssemblyInfo" DependsOnTargets="HgRevision; SVNRevision">
+		<MakeDir Directories="$(AssemblyOutputDir)" />
+		<Message Text="Writing the revision number $(BUILD_VCS_NUMBER) in assemblyinfo.cs." />
+		<AssemblyInfo 
+			AssemblyCompany ="$(AssemblyCompany)"
+			AssemblyCopyright="$(AssemblyCopyright)"
+			AssemblyDescription="$(AssemblyDescription)"
+			AssemblyProduct="$(AssemblyProduct)"
+			AssemblyTitle ="$(AssemblyTitle)"
+			CodeLanguage="$(AssemblyCodeLanguage)"
+			CLSCompliant ="$(AssemblyClsCompliant)"
+			AssemblyInformationalVersion="$(AssemblyVersion).$(BUILD_VCS_NUMBER)"
+			AssemblyVersion ="$(AssemblyVersion).$(BUILD_VCS_NUMBER)"
+			OutputFile="$(AssemblyOutputFile)"
+		/>
+	</Target>
+		
+	<Target Name="CopyOutputsToBin">
+    	<Copy SourceFiles="@(OutputFiles)" 
+    		DestinationFiles="@(OutputFiles->'$(BinDir)\%(RecursiveDir)%(Filename)%(Extension)')" />
+  	</Target>
+
+	<Target Name="IncludeOutputsToTestAssemblies" Condition="!$(SkipTest)" Outputs="@(TestAssemblies)">
+		    <ItemGroup>
+			  <TestAssemblies Include="@(OutputFiles)"/>
+			</ItemGroup>
+	</Target>
+	
+	
+	<Target Name="CopyTestDatabase" Condition="$(TeamCity) Or $(ForceTeamCity)">
+		<Copy SourceFiles="$(TestDataBaseFullPath)" DestinationFiles="@(OutputFiles->'%(RelativeDir)$(TestDataBaseFileName)')"/>
+		<Copy SourceFiles="$(TestDataBaseLogFullPath)" DestinationFiles="@(OutputFiles->'%(RelativeDir)$(TestDataBaseLogFileName)')"/>
+	</Target>
+	
+	<Target Name="CopyTeamCityHibernateCfg" Condition="$(TeamCity) Or $(ForceTeamCity)">
+		<Copy SourceFiles="teamcity.hibernate.cfg.xml" DestinationFiles="@(OutputFiles->'%(RelativeDir)hibernate.cfg.xml')"/>
+	</Target>
+
+
+	<Import Project="Common.build"/>
+</Project>

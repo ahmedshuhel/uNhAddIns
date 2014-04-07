@@ -1,0 +1,89 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Adapters", "Adapters", "{FC65AA39-D647-4F6D-B18D-C9FA8480ED9C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{784F9995-18DF-41EF-9C84-E4925D9EA9DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{1B7D8379-B6AF-4915-8830-F993A981716B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uNhAddIns", "uNhAddIns\uNhAddIns.csproj", "{59233B1D-6DDE-4C05-A9E9-D0A1A8144112}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uNhAddIns.TestUtils", "uNhAddIns.TestUtils\uNhAddIns.TestUtils.csproj", "{7512944F-2C52-44E2-8287-2BD39DE552F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uNhAddIns.TestUtils.Tests", "uNhAddIns.TestUtils.Tests\uNhAddIns.TestUtils.Tests.csproj", "{17478260-D89D-4C6F-AEDF-D33B8D36D201}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uNhAddIns.Adapters", "uNhAddIns.Adapters\uNhAddIns.Adapters.csproj", "{0C444B46-80FD-47D6-BB7C-848EB1626FED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uNhAddIns.Adapters.Common", "uNhAddIns.Adapters.Common\uNhAddIns.Adapters.Common.csproj", "{6E52BD7D-F0AA-4CBE-B4D7-44904F750070}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uNhAddIns.Test", "uNhAddIns.Test\uNhAddIns.Test.csproj", "{36E6304A-EACB-41B9-ADF1-E81BE6EDF0CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uNhAddIns.Adapters.CommonTests", "uNhAddIns.Adapters.CommonTests\uNhAddIns.Adapters.CommonTests.csproj", "{2F125B66-33E5-4C9A-849E-6CB763FF1001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uNhAddIns.CastleAdapters", "uNhAddIns.CastleAdapters\uNhAddIns.CastleAdapters.csproj", "{0140ED11-A9A2-4795-9BE9-22E86A9F0057}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uNhAddIns.CastleAdapters.Tests", "uNhAddIns.CastleAdapters.Tests\uNhAddIns.CastleAdapters.Tests.csproj", "{22FC518C-41B7-43E8-A24E-75220A159B51}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{443796A8-D70B-4833-802A-186728AD4F36}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59233B1D-6DDE-4C05-A9E9-D0A1A8144112}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59233B1D-6DDE-4C05-A9E9-D0A1A8144112}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59233B1D-6DDE-4C05-A9E9-D0A1A8144112}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59233B1D-6DDE-4C05-A9E9-D0A1A8144112}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7512944F-2C52-44E2-8287-2BD39DE552F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7512944F-2C52-44E2-8287-2BD39DE552F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7512944F-2C52-44E2-8287-2BD39DE552F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7512944F-2C52-44E2-8287-2BD39DE552F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17478260-D89D-4C6F-AEDF-D33B8D36D201}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17478260-D89D-4C6F-AEDF-D33B8D36D201}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17478260-D89D-4C6F-AEDF-D33B8D36D201}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C444B46-80FD-47D6-BB7C-848EB1626FED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C444B46-80FD-47D6-BB7C-848EB1626FED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C444B46-80FD-47D6-BB7C-848EB1626FED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C444B46-80FD-47D6-BB7C-848EB1626FED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E52BD7D-F0AA-4CBE-B4D7-44904F750070}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E52BD7D-F0AA-4CBE-B4D7-44904F750070}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E52BD7D-F0AA-4CBE-B4D7-44904F750070}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E52BD7D-F0AA-4CBE-B4D7-44904F750070}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36E6304A-EACB-41B9-ADF1-E81BE6EDF0CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36E6304A-EACB-41B9-ADF1-E81BE6EDF0CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36E6304A-EACB-41B9-ADF1-E81BE6EDF0CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36E6304A-EACB-41B9-ADF1-E81BE6EDF0CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F125B66-33E5-4C9A-849E-6CB763FF1001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F125B66-33E5-4C9A-849E-6CB763FF1001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F125B66-33E5-4C9A-849E-6CB763FF1001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0140ED11-A9A2-4795-9BE9-22E86A9F0057}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0140ED11-A9A2-4795-9BE9-22E86A9F0057}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0140ED11-A9A2-4795-9BE9-22E86A9F0057}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0140ED11-A9A2-4795-9BE9-22E86A9F0057}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22FC518C-41B7-43E8-A24E-75220A159B51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22FC518C-41B7-43E8-A24E-75220A159B51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22FC518C-41B7-43E8-A24E-75220A159B51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0140ED11-A9A2-4795-9BE9-22E86A9F0057} = {FC65AA39-D647-4F6D-B18D-C9FA8480ED9C}
+		{22FC518C-41B7-43E8-A24E-75220A159B51} = {FC65AA39-D647-4F6D-B18D-C9FA8480ED9C}
+		{59233B1D-6DDE-4C05-A9E9-D0A1A8144112} = {784F9995-18DF-41EF-9C84-E4925D9EA9DB}
+		{0C444B46-80FD-47D6-BB7C-848EB1626FED} = {784F9995-18DF-41EF-9C84-E4925D9EA9DB}
+		{6E52BD7D-F0AA-4CBE-B4D7-44904F750070} = {784F9995-18DF-41EF-9C84-E4925D9EA9DB}
+		{36E6304A-EACB-41B9-ADF1-E81BE6EDF0CB} = {784F9995-18DF-41EF-9C84-E4925D9EA9DB}
+		{2F125B66-33E5-4C9A-849E-6CB763FF1001} = {784F9995-18DF-41EF-9C84-E4925D9EA9DB}
+		{7512944F-2C52-44E2-8287-2BD39DE552F1} = {1B7D8379-B6AF-4915-8830-F993A981716B}
+		{17478260-D89D-4C6F-AEDF-D33B8D36D201} = {1B7D8379-B6AF-4915-8830-F993A981716B}
+	EndGlobalSection
+EndGlobal

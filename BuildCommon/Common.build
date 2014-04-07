@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+	<PropertyGroup>
+		<ToolsDir>$(RootDir)\Tools</ToolsDir>
+		<MSBuildCommunityTasksPath>$(ToolsDir)\MSBuildCommunityTasks\</MSBuildCommunityTasksPath>
+		<MercurialTasksPath>$(ToolsDir)\Mercurial\</MercurialTasksPath>
+		<NUnitDir>$(ToolsDir)\Nunit</NUnitDir>
+		<ReportFile>nunit-result.xml</ReportFile>
+		<ArtifactsDir>$(RootDir)\Artifacts\</ArtifactsDir>
+		<FlattenZipFile>True</FlattenZipFile>
+		<SkipAllTests>False</SkipAllTests>
+		<BinDir>$(RootDir)\Build</BinDir>
+		<TestDataBaseFileName>uNh.mdf</TestDataBaseFileName>
+		<TestDataBaseLogFileName>uNh_log.ldf</TestDataBaseLogFileName>
+		<TestDataBaseFullPath>$(RootDir)\BuildCommon\$(TestDataBaseFileName)</TestDataBaseFullPath>
+		<TestDataBaseLogFullPath>$(RootDir)\BuildCommon\$(TestDataBaseLogFileName)</TestDataBaseLogFullPath>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<ExistingZipFiles Include="$(ArtifactsDir)\*.zip"/>
+	</ItemGroup>
+
+	<Target Name="RunBuild">
+		<MsBuild 
+			Projects="@(BuildFiles)" 
+			Properties="BUILD_VCS_NUMBER=$(BUILD_VCS_NUMBER);RootDir=$(RootDir);Configuration=$(Configuration);BinDir=$(BinDir)"			>
+			<Output 
+				ItemName="TestAssemblies"
+				TaskParameter="TargetOutputs"
+			/>
+		</MsBuild>
+
+	</Target>
+
+	<Target Name="RunGenerateAssemblyInfo">
+		<MsBuild 
+			Projects="@(BuildFiles)"
+			Properties="BUILD_VCS_NUMBER=$(BUILD_VCS_NUMBER);RootDir=$(RootDir)"
+			Targets="_GenerateAssemblyInfo"
+			/>
+	</Target>
+
+	
+    <Target Name="RunTest" Condition="!$(SkipAllTests) and '@(TestAssemblies)' != ''">
+        <NUnit 
+        	Assemblies="@(TestAssemblies)" 
+        	ToolPath="$(NUnitDir)"
+        	OutputXmlFile="$(ReportFile)"
+        />
+    </Target>
+    
+	<Target Name="RunZip">
+		<Delete Files="@(ExistingZipFiles)"/>
+		<Time Format="yyyy-MMM-dd-HH-mm">
+			<Output TaskParameter="FormattedTime"
+					PropertyName="buildDate" />
+		</Time>
+		<CreateProperty value="$(ArtifactsDir)\$(AssemblyProjectName)-$(FullVersion)-$(Configuration)-$(buildDate).zip">
+			<Output TaskParameter="Value"
+					PropertyName="ZipFileName" />
+		</CreateProperty>
+		<Zip Files="@(ZipFiles)" Flatten="$(FlattenZipFile)" ZipLevel="9"
+		    WorkingDirectory="$(MSBuildProjectDirectory)"
+			 ZipFileName="$(ZipFileName)" />
+	</Target>
+	
+	<Target Name="BeforeZip">
+		<CreateItem Include="$(BinDir)\*.*;">
+			<Output TaskParameter="Include" ItemName="ZipFiles"/>
+		</CreateItem>
+	</Target>
+    
+	<Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.Targets"/>
+	<Import Project="$(MercurialTasksPath)\MSBuild.Mercurial.tasks"/>
+</Project>
