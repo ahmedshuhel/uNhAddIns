@@ -3,7 +3,7 @@
 	<session-factory name="uNhAddIns">
 		<property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
 		<property name="connection.connection_string">
-			Data Source=ZEN-HOME;Initial Catalog=uNhAITests;User Id=sa;Password=123
+			Data Source=.\sqlexpress;Initial Catalog=uNhAITests;User Id=sa;Password=123
 		</property>
 		<property name="dialect">NHibernate.Dialect.MsSql2005Dialect</property>
 

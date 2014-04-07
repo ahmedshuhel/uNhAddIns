@@ -3,7 +3,7 @@
 	<session-factory>
 		
 		<property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
-		<property name="connection.connection_string">Server=ZEN-HOME;Initial Catalog=Easier;User Id=sa; Password =123</property>
+		<property name="connection.connection_string">Server=.\sqlexpress;Initial Catalog=Easier;User Id=sa; Password =123</property>
 		<property name="dialect">NHibernate.Dialect.MsSql2008Dialect</property>
 	</session-factory>
 </hibernate-configuration>
